@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 services:
   postgres:
@@ -13,8 +13,10 @@ services:
       - "5432:5432"
     networks:
       - stock_analysis_net
-  python:
-    image: jupyter/scipy-notebook:latest
+  
+ 
+  jupyter:
+    build: .
     environment:
       JUPYTER_ENABLE_LAB: "yes"
     volumes:
@@ -25,6 +27,11 @@ services:
       - stock_analysis_net
     depends_on:
       - postgres
+
+ 
+    
+
+    
 
 volumes:
   postgres_data:
