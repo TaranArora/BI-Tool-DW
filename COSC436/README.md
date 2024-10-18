@@ -27,7 +27,9 @@ Before you begin, ensure you have the following installed on your machine:
 
 2. Open cloned repo in vscode, or enter this command to directly open form terminal, if youa re in that directory
 
-    ```code .
+    ```
+    code .
+
 
 3. got to directory 
 cd COSC436
@@ -41,6 +43,11 @@ cd COSC436
 3. Access the Jupyter Lab interface:
 
     Open your web browser and navigate to [http://localhost:8888](http://localhost:8888). You should see the Jupyter Lab interface.
+
+   -
+   -
+   After Opening this link you will encounter Jypter notbook | GO inside notebooks ,there you find the .ipynb pything file , go thorught it
+   
 
 ## Project Structure
 
