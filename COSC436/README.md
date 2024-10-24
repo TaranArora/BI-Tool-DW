@@ -66,3 +66,20 @@ docker-compose down
 
 
 
+## Creating a Backup of the SQL Database
+
+To create a backup of your PostgreSQL database, follow these steps:
+
+1. **Find the Container ID**:
+    First, find the container ID of the running PostgreSQL container. You can do this by listing all running containers:
+    ```sh
+    docker ps
+    ```
+
+2. **Execute the Backup Command**:
+    Use the `docker exec` command to create a backup of the database. Replace `CONTAINER_ID` with the actual container ID from the previous step:
+    ```sh
+    docker exec -t CONTAINER_ID pg_dump -U cosc stock_data > stock_data.sql
+    ```
+
+This will create a file named `stock_data.sql` in your current directory containing the backup of your PostgreSQL database.
