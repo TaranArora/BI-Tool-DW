@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   postgres:
@@ -10,26 +9,16 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     ports:
       - "5432:5432"
     networks:
       - stock_analysis_net
-  
+  backup:
+    image: alpine:latest
+    command: sh -c "pg_dump -U cosc stock_data > /backup/stock_data_backup.sql && cp /backup/stock_data_backup.sql ./backups/stock_data_backup.sql"
+
+
+
   jupyter:
     build: .
     environment:
