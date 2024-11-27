@@ -8,16 +8,14 @@ services:
       POSTGRES_DB: stock_data
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./stock_data.sql:/docker-entrypoint-initdb.d/init.sql
 
     ports:
       - "5432:5432"
     networks:
       - stock_analysis_net
-  backup:
-    image: alpine:latest
-    command: sh -c "pg_dump -U cosc stock_data > /backup/stock_data_backup.sql && cp /backup/stock_data_backup.sql ./backups/stock_data_backup.sql"
-
-
+  volumes:
+    postgres_data:
 
   jupyter:
     build: .
