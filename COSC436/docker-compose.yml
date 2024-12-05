@@ -14,9 +14,7 @@ services:
       - "5432:5432"
     networks:
       - stock_analysis_net
-  volumes:
-    postgres_data:
-
+  
   jupyter:
     build: .
     environment:
